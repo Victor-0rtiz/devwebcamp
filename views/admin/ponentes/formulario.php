@@ -20,15 +20,25 @@
         <label for="imagen" class="formulario__label">Imagen</label>
         <input type="file" name="imagen" id="imagen" class="formulario__input formulario__input--file">
     </div>
+    <?php if (!empty($ponente->imagen)) { ?>
+        <p class="formulario__texto">Imagen Actual</p>
+        <div class="formulario__imagen">
+            <picture>
+                <source srcset="<?php echo $_ENV["HOST"] . "/img/speakers/" . $ponente->imagen; ?>.webp" type="image/webp">
+                <source srcset="<?php echo $_ENV["HOST"] . "/img/speakers/" . $ponente->imagen; ?>.png" type="image/png">
+                <img src="<?php echo $_ENV["HOST"] . "/img/speakers/" . $ponente->imagen; ?>.png" alt="Imagen Ponente">
+            </picture>
+        </div>
+    <?php  } ?>
 </fieldset>
 
 <fieldset class="formulario__fieldset">
     <legend class="formulario__legend">Información Extra </legend>
     <div class="formulario__campo">
-        <label for="tags_input" class="formulario__label">Áreas de Experiencias   (Separar con una coma)</label>
+        <label for="tags_input" class="formulario__label">Áreas de Experiencias (Separar con una coma)</label>
         <input type="text" id="tags_input" placeholder="Ej. Node.js, PHP, CSS, Laravel, UX / UI" class="formulario__input">
         <div id="tags" class="formulario__listado"></div>
-            <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? ""; ?>">
+        <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? ""; ?>">
     </div>
 </fieldset>
 <fieldset class="formulario__fieldset">
@@ -39,45 +49,45 @@
             <div class="formulario__icono">
                 <i class="fa-brands fa-facebook"></i>
             </div>
-            <input type="text" name="redes[facebook]"  placeholder="Facebook" class="formulario__input--sociales" value="<?php echo $ponente->facebook ?? ""; ?>">
-           
+            <input type="text" name="redes[facebook]" placeholder="Facebook" class="formulario__input--sociales" value="<?php echo $redes->facebook ?? ""; ?>">
+
         </div>
 
         <div class="formulario__contenedor-icono">
             <div class="formulario__icono">
                 <i class="fa-brands fa-twitter"></i>
             </div>
-            <input type="text" name="redes[twitter]"  placeholder="Twitter" class="formulario__input--sociales" value="<?php echo $ponente->twitter ?? ""; ?>">
-           
+            <input type="text" name="redes[twitter]" placeholder="Twitter" class="formulario__input--sociales" value="<?php echo $redes->twitter ?? ""; ?>">
+
         </div>
 
         <div class="formulario__contenedor-icono">
             <div class="formulario__icono">
                 <i class="fa-brands fa-youtube"></i>
             </div>
-            <input type="text" name="redes[youtube]"  placeholder="Youtube" class="formulario__input--sociales" value="<?php echo $ponente->youtube ?? ""; ?>">
-           
+            <input type="text" name="redes[youtube]" placeholder="Youtube" class="formulario__input--sociales" value="<?php echo $redes->youtube ?? ""; ?>">
+
         </div>
         <div class="formulario__contenedor-icono">
             <div class="formulario__icono">
                 <i class="fa-brands fa-instagram"></i>
             </div>
-            <input type="text" name="redes[instagram]"  placeholder="Instagram" class="formulario__input--sociales" value="<?php echo $ponente->instagram ?? ""; ?>">
-           
+            <input type="text" name="redes[instagram]" placeholder="Instagram" class="formulario__input--sociales" value="<?php echo $redes->instagram ?? ""; ?>">
+
         </div>
         <div class="formulario__contenedor-icono">
             <div class="formulario__icono">
                 <i class="fa-brands fa-tiktok"></i>
             </div>
-            <input type="text" name="redes[tiktok]"  placeholder="Tiktok" class="formulario__input--sociales" value="<?php echo $ponente->tiktok ?? ""; ?>">
-           
+            <input type="text" name="redes[tiktok]" placeholder="Tiktok" class="formulario__input--sociales" value="<?php echo $redes->tiktok ?? ""; ?>">
+
         </div>
         <div class="formulario__contenedor-icono">
             <div class="formulario__icono">
                 <i class="fa-brands fa-github"></i>
             </div>
-            <input type="text" name="redes[github]"  placeholder="Github" class="formulario__input--sociales" value="<?php echo $ponente->github ?? ""; ?>">
-           
+            <input type="text" name="redes[github]" placeholder="Github" class="formulario__input--sociales" value="<?php echo $redes->github ?? ""; ?>">
+
         </div>
 
     </div>

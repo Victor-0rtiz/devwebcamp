@@ -130,6 +130,14 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
+    //Tare el total de registro
+    public static function total(){
+        $query = "SELECT COUNT(*) FROM " . static::$tabla;
+        $resultado= self::$db->query($query);
+        $total = $resultado->fetch_array();
+        return array_shift($total);
+
+    }
 
     // crea un nuevo registro
     public function crear() {

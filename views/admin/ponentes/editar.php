@@ -9,7 +9,7 @@
 <div class="dashboard__formulario">
     <?php include_once __DIR__."/../../templates/alertas.php"; ?>
 
-    <form action="/admin/ponentes/crear" method="POST" enctype="multipart/form-data" class="formulario">
+    <form  method="POST" enctype="multipart/form-data" class="formulario">
 
     <?php include_once __DIR__."/formulario.php"; ?>
 
