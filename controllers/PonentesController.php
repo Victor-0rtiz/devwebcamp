@@ -19,16 +19,18 @@ class PonentesController
         
         $registro_por_pagina=10;
         $total= Ponentes::total();
-
-        $paginacion = new Paginado($pagina_actual,$registro_por_pagina, $total);
+        $paginacion = new Paginado($pagina_actual,$registro_por_pagina, $total); 
        
+        if ($paginacion->total_paginas() < $pagina_actual) {
+            header("location:  /admin/ponentes?page=1");
+        }     
 
+        $ponentes = Ponentes::paginar($registro_por_pagina, $paginacion->offset());
 
         if(!is_admin()){
             header("location: /login");
         }
-        $ponentes = Ponentes::all();
-        $router->render("admin/ponentes/index", ["titulo" => "Ponentes / Conferencistas", "ponentes" => $ponentes]);
+        $router->render("admin/ponentes/index", ["titulo" => "Ponentes / Conferencistas", "ponentes" => $ponentes, "paginacion"=> $paginacion->paginacion()]);
     }
     public static function crear(Router $router)
     {
