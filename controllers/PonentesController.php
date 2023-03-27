@@ -42,7 +42,9 @@ class PonentesController
 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            
+            if(!is_admin()){
+                header("location: /login");
+            }
 
             //leer imagen
 
@@ -97,6 +99,9 @@ class PonentesController
         $redes = json_decode($ponente->redes);
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if(!is_admin()){
+                header("location: /login");
+            }
             if (!empty($_FILES["imagen"]["tmp_name"])) {
                 $carpeta_imagenes = "../public/img/speakers";
                 // Eliminar la imagen previa

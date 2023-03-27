@@ -25,12 +25,12 @@
             <?php foreach ($dias as $dia) { ?>
                 <div>
                     <label for="<?php echo strtolower($dia->nombre); ?>"> <?php echo $dia->nombre; ?></label>
-                    <input type="radio" name="dia" id="<?php echo strtolower($dia->nombre); ?>" value="<?php echo $dia->id; ?>">
+                    <input type="radio" name="dia" id="<?php echo strtolower($dia->nombre); ?>" value="<?php echo $dia->id; ?>"  <?php echo ($evento->dia_id == $dia->id)? "checked": ""; ?>>
                 </div>
 
             <?php } ?>
         </div>
-        <input type="hidden" name="dia_id" value="">
+        <input type="hidden" name="dia_id" value="<?php echo $evento->dia_id; ?>">
 
     </div>
 
@@ -40,10 +40,11 @@
         <ul id="horas" class="horas">
             <?php foreach ($horas as $hora) { ?>
                 
-                <li class="horas__hora"><?php echo $hora->hora; ?></li>
+                <li data-hora-id="<?php echo $hora->id; ?>" class="horas__hora  horas__hora--deshabilitada"><?php echo $hora->hora; ?></li>
             <?php } 
            ?>
         </ul>
+        <input type="hidden" name="hora_id" value="<?php echo $evento->hora_id; ?>">
     </div>
 </fieldset>
 
@@ -52,6 +53,8 @@
     <div class="formulario__campo">
         <label for="ponentes" class="formulario__label">Ponentes del Evento</label>
         <input id="ponentes" placeholder="Buscar Ponente" class="formulario__input" >
+        <ul id="listado-ponentes" class="listado-ponentes"></ul>
+        <input type="hidden" name="ponente_id" value="<?php echo $evento->ponente_id; ?>">
     </div>
     <div class="formulario__campo">
         <label for="disponibles" class="formulario__label">Lugares Disponibles</label>
