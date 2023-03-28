@@ -154,6 +154,14 @@ class ActiveRecord
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }
+    
+    //Retornar por orden
+    public static function ordenar($columna, $orden)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY ${columna}  {$orden}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
     // Busqueda Where con mulptiples opciones  
     public static function whereArray($array = [])
     {

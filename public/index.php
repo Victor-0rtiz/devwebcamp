@@ -7,6 +7,7 @@ use Controllers\APIponentes;
 use Controllers\AuthController;
 use Controllers\DashboardController;
 use Controllers\EventosController;
+use Controllers\PaginasController;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
@@ -67,6 +68,13 @@ $router->get('/admin/regalos', [RegalosController::class, 'index']);
 $router->get('/api/eventos-horario', [APIeventos::class, 'index']);
 $router->get('/api/ponentes', [APIponentes::class, 'index']);
 $router->get('/api/ponente', [APIponentes::class, 'ponente']);
+
+//?Area Publica
+
+$router->get("/",[PaginasController::class, "index"]);
+$router->get("/devwebcamp",[PaginasController::class, "evento"]);
+$router->get("/paquetes",[PaginasController::class, "paquetes"]);
+$router->get("/workshops-conferencias",[PaginasController::class, "conferencias"]);
 
 
 
