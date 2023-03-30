@@ -14,7 +14,7 @@ function s($html): string
 }
 function pagina_actual($path)
 {
-    return str_contains($_SERVER["PATH_INFO"], $path) ? true : false;
+    return str_contains($_SERVER["PATH_INFO"] ?? "/", $path) ? true : false;
 }
 function is_auth()
 {
@@ -31,4 +31,9 @@ function is_admin()
     }
 
     return isset($_SESSION["admin"]) && !empty($_SESSION["admin"]);
+}
+function aos_animacion(){
+    $efectos =["fade-up", "fade-down", "fade-right", "fade-left", "flip-left", "flip-right", "flip-up", "flip-down", "zoom-in", "zoom-in-up", "zoom-in-down", "zoom-out-down"];
+    $efecto = array_rand($efectos, 1);
+    echo ' data-aos="'. $efectos[$efecto]. '" ';
 }
