@@ -33,6 +33,7 @@ class AuthController {
                         $_SESSION['apellido'] = $usuario->apellido;
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['admin'] = $usuario->admin ?? null;
+                      
                         //redireccionar
                         if ($usuario->admin) {
                             header("location: /admin/dashboard");
