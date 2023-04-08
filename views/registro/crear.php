@@ -81,6 +81,8 @@
                 method: "POST",
                 body: datos
             }).then(respuesta => respuesta.json()).then(resultado => {
+
+              console.log(resultado);
                 if (resultado.resultado) {
                     actions.redirect("http://localhost:3000/finalizar-registro/conferencias");
                 }
