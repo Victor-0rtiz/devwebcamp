@@ -1480,6 +1480,10 @@ h3 {
   width: min(95%, 80rem);
   margin: 0 auto;
 }
+.dashboard__grafica {
+  width: min(95%, 60rem);
+  margin: 0 auto;
+}
 
 .table {
   width: 100%;
@@ -1589,6 +1593,53 @@ h3 {
 .listado-ponentes__ponente--seleccionado {
   background-color: #007df4;
   color: #FFFFFF;
+}
+
+.bloques {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+}
+.bloques__grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 1024px) {
+  .bloques__grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.bloque {
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.bloque:nth-child(1) {
+  background-image: linear-gradient(to left top, #e8c31f, #efd664);
+}
+.bloque:nth-child(2) {
+  background-image: linear-gradient(to left top, #4b1fe8, #8364ef);
+}
+.bloque:nth-child(3) {
+  background-image: linear-gradient(to left top, #1fc0e8, #64d4ef);
+}
+.bloque:nth-child(4) {
+  background-image: linear-gradient(to left top, #1fe84b, #64ef83);
+}
+.bloque__heading {
+  margin: 1rem 0 2rem 0;
+  font-size: 3.5rem;
+}
+.bloque__texto {
+  margin: 1rem 0;
+}
+.bloque__texto--cantidad {
+  margin-top: 5rem;
+  font-weight: 900;
+  font-size: 4rem;
+  text-align: center;
 }
 
 .eventos-registro {
